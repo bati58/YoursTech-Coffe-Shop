@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import { FiMapPin, FiPhone, FiMail, FiInstagram, FiFacebook, FiTwitter } from "react-icons/fi";
-import { FaTiktok } from "react-icons/fa";
+import { FiMapPin, FiPhone, FiMail, FiInstagram, FiFacebook, FiTwitter, FiGlobe } from "react-icons/fi";
+import { FaTelegramPlane, FaTiktok } from "react-icons/fa";
 import Logo from "../ui/Logo";
 import { site } from "../../config/site";
 
 const socialIcons = {
   instagram: { icon: FiInstagram, label: "Instagram" },
   facebook: { icon: FiFacebook, label: "Facebook" },
+  telegram: { icon: FaTelegramPlane, label: "Telegram" },
   tiktok: { icon: FaTiktok, label: "TikTok" },
   x: { icon: FiTwitter, label: "X" },
 };
@@ -14,7 +15,7 @@ const socialIcons = {
 export default function Footer() {
   const { contact, openingHours, social } = site;
   const socials = Object.entries(social).filter(([, url]) => url);
-  const hasContact = contact.address || contact.phone || contact.email;
+  const hasContact = contact.address || contact.phone || contact.email || contact.website;
 
   const linkCls = "text-cream/70 transition hover:text-accent-light";
 
@@ -66,6 +67,7 @@ export default function Footer() {
               {contact.address && <li className="flex gap-3"><FiMapPin className="mt-0.5 shrink-0" /> {contact.address}</li>}
               {contact.phone && <li className="flex gap-3"><FiPhone className="mt-0.5 shrink-0" /> {contact.phone}</li>}
               {contact.email && <li className="flex gap-3"><FiMail className="mt-0.5 shrink-0" /> {contact.email}</li>}
+              {contact.website && <li className="flex gap-3"><FiGlobe className="mt-0.5 shrink-0" /> <a href={contact.website} target="_blank" rel="noopener noreferrer" className="hover:text-accent-light">yourstech.net</a></li>}
               {!hasContact && <li>Contact details are coming soon. In the meantime, you can order directly from our menu.</li>}
             </ul>
             {openingHours.length > 0 && (

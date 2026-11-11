@@ -12,13 +12,15 @@ export const site = {
   announcement: "Freshly brewed, every cup — order online and pick up with ease.",
   openingHours: [], // e.g. [{ days: "Mon – Fri", hours: "7:00 – 19:00" }]
   contact: {
-    address: "",
-    phone: "",
-    email: "",
+    address: "Ethiopia, Addis Ababa",
+    phone: "+251 96 248 9700",
+    email: "Info@yourstech.academy",
+    website: "https://yourstech.net/",
   },
   social: {
     instagram: "",
-    facebook: "",
+    facebook: "https://www.facebook.com/YoursTechlso/",
+    telegram: "https://t.me/yourstechacademy",
     tiktok: "",
     x: "",
   },
