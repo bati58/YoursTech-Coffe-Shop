@@ -1,6 +1,6 @@
-# Customizable Coffee Shop
+# YoursTech Coffee Shop
 
-A premium specialty-coffee storefront built with React 19, Vite, Tailwind CSS, React Router and the Context API.
+A premium specialty-coffee storefront for YoursTech Coffee Shop, built with React 19, Vite, Tailwind CSS, React Router and the Context API.
 
 ## Run
 ```bash

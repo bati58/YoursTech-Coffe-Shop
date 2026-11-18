@@ -3,12 +3,22 @@ import { createContext, useContext, useEffect, useMemo, useState, useCallback } 
 import { safeParse } from "../utils/format";
 import products from "../data/products";
 
-const CART_KEY = "enu_cart";
+const CART_KEY = "yourstech_cart";
+const LEGACY_CART_KEY = "enu_cart";
 const CartContext = createContext(null);
 
 function readCart() {
   try {
-    const stored = safeParse(localStorage.getItem(CART_KEY), []);
+    let storedCart = localStorage.getItem(CART_KEY);
+    if (storedCart === null) {
+      storedCart = localStorage.getItem(LEGACY_CART_KEY);
+      if (storedCart !== null) {
+        localStorage.setItem(CART_KEY, storedCart);
+        localStorage.removeItem(LEGACY_CART_KEY);
+      }
+    }
+
+    const stored = safeParse(storedCart, []);
     if (!Array.isArray(stored)) return [];
     return stored
       .map(({ id, quantity }) => {
